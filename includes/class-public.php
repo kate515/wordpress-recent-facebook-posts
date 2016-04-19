@@ -159,9 +159,13 @@ class RFBP_Public {
 ?>
 
 					<<?php echo $atts['el']; ?> class="rfbp-post">
-					<h4 class="rfbp-heading"><a class="rfbp-link" href="<?php echo $p['post_link']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
-						<?php echo $p['name']; ?>
-					</a></h4>
+				 		<?php if ((isset($p['name'])) && (trim($p['name']) != '')): ?>
+                					 <h4 class="rfbp-heading">
+								<a class="rfbp-link" href="<?php echo $p['post_link']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
+									<?php echo $p['name']; ?>
+								</a>
+							</h4>
+						<?php endif; ?>
 					<div class="rfbp-text">
 
 						<?php
@@ -179,7 +183,7 @@ class RFBP_Public {
 						<a class="rfbp-link" href="<?php echo $p['link_url']; ?>" rel="external nofollow" target="<?php echo $link_target; ?>">
 							<?php if ( !empty( $p['link_image'] ) && ( apply_filters( 'rfbp_show_link_images', true ) !== false ) ) { ?>
 							<span class="rfbp-link-image-wrap">
-								<img class="rfbp-link-image" src="<?php echo esc_attr( $p['link_image'] ); ?>" width="114" />
+								<img class="rfbp-link-image" alt="" src="<?php echo esc_attr( $p['link_image'] ); ?>" width="114" />
 							</span>
 							<?php } ?>
 
